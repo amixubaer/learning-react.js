@@ -12,14 +12,15 @@ function App() {
     const addUsers = (newUser) => {
         setUsers([...myuser, newUser]);
     };
+
+    const editUsers = (newUser) => {
+        const data = myuser.filter((user) => user.id !== newUser.id);
+        setUsers([...data, newUser]);
+    };
     const deleteCallback = (id) => {
         const data = myuser.filter((user) => user.id !== id);
         setUsers(data);
     };
-
-    const url = "http://localhost:8000/userlist";
-    const response = fetch(url);
-    console.log(response);
 
     return (
         <Router>
@@ -37,7 +38,7 @@ function App() {
                     <AddUser status="add" callback={addUsers} />
                 </Route>
                 <Route path="/edit/:id">
-                    <AddUser status="edit" callback={addUsers} />
+                    <AddUser status="edit" callback={editUsers} />
                 </Route>
                 <Route path="*">
                     <h3>404 not found</h3>

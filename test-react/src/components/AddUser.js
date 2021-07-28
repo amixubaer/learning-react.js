@@ -10,9 +10,6 @@ const AddUser = ({ status, callback }) => {
     const onSubmit = (e) => {
         e.preventDefault();
         callback({ id: id, name: name, dept: dept });
-        console.log(id);
-        console.log(name);
-        console.log(dept);
     };
     return (
         <div>
