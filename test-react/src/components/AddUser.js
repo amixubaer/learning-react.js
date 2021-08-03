@@ -22,6 +22,16 @@ const AddUser = ({ status, callback }) => {
                 This is {status} user page id: {eid}
             </h2>
             <form onSubmit={onSubmit}>
+            <label>
+                    ID:
+                    <input
+                        type="text"
+                        name="id"
+                        value={eid}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </label>
+                <br />
                 <label>
                     Name:
                     <input
